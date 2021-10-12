@@ -4,12 +4,12 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+Masters graduate in Artificial Intelligence & Robotics. Few years of experience as Stress Engineer in the Airraft industry.
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
+I love to write.
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[email@domain.com](mailto:aj19abg@herts.ac.uk)
