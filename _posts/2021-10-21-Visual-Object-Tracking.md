@@ -21,7 +21,7 @@ When you dive into the field of visual object tracking, often you will across fe
 
 ## Visual Object Tracking
 
-Visual Object Tracking is a process by which an algorithm locates an object in every frame of a sequence. Depending on the number of objects tracked by the algorithm in each frame, object tracking is classified into - Single Object Tracking (SOT) annd Multiple Object Tracking (MOT). 
+Visual Object Tracking is a process by which an algorithm locates an object in every frame of a sequence. Some of the real-world applications include tracking of vehicles, environmental surveillance, delivery of objects using drone etc,.  Depending on the number of objects tracked by the algorithm in each frame, object tracking is classified into - Single Object Tracking (SOT) annd Multiple Object Tracking (MOT). 
 
 ![ObjectTrackingClassification](../images/objecttracking-2.jpeg "Classification of Object Tracking")
 
@@ -77,6 +77,7 @@ The remaining code is shown below:
         
         # Create KCF algorithm
         tracker = cv2.TrackerKCF_create()
+
         # Use 0 to capture from web cam otherwise give the path to an input video 
         video = cv2.VideoCapture(0)
 
@@ -95,9 +96,11 @@ The remaining code is shown below:
         while True:
             # Read next frame from the webcam
             ok, frame = video.read()
+
             # if something goes wrong  then break the loop
             if not ok:
                 break
+
             # Timer to calculate Frame Per Second (FPS)
             timer = cv2.getTickCount()
 
@@ -111,28 +114,34 @@ The remaining code is shown below:
                 # Extract the bounding box co-ordinates from the KCF tracker
                 # p1 denotes the top left x and y co-ordinates
                 p1 = (int(bbox[0]), int(bbox[1]))
+
                 # bbox[2] and bbox[3] represents the width and height of the bounding box resp.
                 # p2 represents the bottom right x and y co-ordinates of bounding box
                 p2 = (int(bbox[0] + bbox[2]), int(bbox[1] + bbox[3]))
-                # Draw the reulsting bounding box on the current frame
+
+                # Draw the resulting bounding box on the current frame
                 cv2.rectangle(frame, p1, p2, (255,0,0), 2, 1)
             else:
                 cv2.putText(frame, "Tracking failure detected", (100,80), cv2.FONT_HERSHEY_SIMPLEX, 0.75,(0,0,255),2)
         
             # Display tracker type on frame
             cv2.putText(frame, "KCF Tracker", (100,20), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (50,170,50),2)
+
             # Display FPS on frame
             cv2.putText(frame, "FPS : " + str(int(fps)), (100,50), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (50,170,50), 2)
+
             cv2.imshow("Tracking", frame)
             # Exit if ESC pressed
             k = cv2.waitKey(1) & 0xff
             if k == 27 : break
 
+You can play around with the code. Try using other tracking algorithms such as GOTURN etc. Record your observations for the below questions:
 
+- Is it faster than KCF?
+- Does it fail under any conditions such as low lighting, fast moving target etc?
+- Is the tracking good enough to be acceptable for a real world applications?
 
-
-
-
+Have you got any suggestions? - Please reach out to me. I would love to hear it.
 
 
 ### References
