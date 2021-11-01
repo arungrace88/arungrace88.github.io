@@ -3,8 +3,6 @@ layout: post
 title: Machine Learning Algorithms
 ---
 
-# Machine Learning Algorithms
-
 ![Photo by Markus Winkler on Unsplash](../images/1-1Coverphoto.jpg)
 
 What is machine learning (ML)? How many different types of ML algorithms are there? In this post, we will discover the definition of machine learning, different types of machine learning algorithms such as supervised, unsupervised, semi-supervised, reinforcement learning, and real-world applications.
