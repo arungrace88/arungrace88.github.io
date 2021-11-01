@@ -71,6 +71,63 @@ The output is shown as below.
 
 `The open cv version is: 4.5.1`
 
+The remaining code is shown below:
+
+    if __name__== "__main__":
+        
+        # Create KCF algorithm
+        tracker = cv2.TrackerKCF_create()
+        # Use 0 to capture from web cam otherwise give the path to an input video 
+        video = cv2.VideoCapture(0)
+
+        # Read the first frame
+        ok, frame = video.read()
+        '''
+        Select ROI enables to draw a rectangular box around the target from the first frame.
+        Press enter to continue.
+
+        '''
+        bbox = cv2.selectROI(frame, False)
+
+        # Initialses the KCF tracker with the target object bounding box
+        ok = tracker.init(frame, bbox)
+
+        while True:
+            # Read next frame from the webcam
+            ok, frame = video.read()
+            # if something goes wrong  then break the loop
+            if not ok:
+                break
+            # Timer to calculate Frame Per Second (FPS)
+            timer = cv2.getTickCount()
+
+            # Update the KCF tracker with the new current frame
+            ok, bbox = tracker.update(frame)
+            
+            # Calculate the FPS
+            fps = cv2.getTickFrequency() / (cv2.getTickCount() - timer)
+
+            if ok:
+                # Extract the bounding box co-ordinates from the KCF tracker
+                # p1 denotes the top left x and y co-ordinates
+                p1 = (int(bbox[0]), int(bbox[1]))
+                # bbox[2] and bbox[3] represents the width and height of the bounding box resp.
+                # p2 represents the bottom right x and y co-ordinates of bounding box
+                p2 = (int(bbox[0] + bbox[2]), int(bbox[1] + bbox[3]))
+                # Draw the reulsting bounding box on the current frame
+                cv2.rectangle(frame, p1, p2, (255,0,0), 2, 1)
+            else:
+                cv2.putText(frame, "Tracking failure detected", (100,80), cv2.FONT_HERSHEY_SIMPLEX, 0.75,(0,0,255),2)
+        
+            # Display tracker type on frame
+            cv2.putText(frame, "KCF Tracker", (100,20), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (50,170,50),2)
+            # Display FPS on frame
+            cv2.putText(frame, "FPS : " + str(int(fps)), (100,50), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (50,170,50), 2)
+            cv2.imshow("Tracking", frame)
+            # Exit if ESC pressed
+            k = cv2.waitKey(1) & 0xff
+            if k == 27 : break
+
 
 
 
