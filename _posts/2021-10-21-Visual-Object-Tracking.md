@@ -48,15 +48,30 @@ In this article, we will mainly focus on Single Object Tracking using KCF algori
 
 KCF algorithm utilises the concept of correlation filter. The underlying principle is that when two samples or values are correlated then the correlation value is higher and vice-versa. This principle is extended to calculate the correlation value between the image patch containing the target object in the previous frame and the image patch from the future frame. The higher correlation value indicates the patch from the future frame where the target object is likely to be found. If you are interested to find more about KCF, it is worth to read the [original research paper from the authors of KCF](https://arxiv.org/abs/1404.7584).
 
-Now let's implement the KCF algorithm using Python Open CV library.
+Now let's implement the KCF algorithm using Python Open CV library. First, let us install the open cv library using below pip or conda command.
 
-    # Import the cv2 library    
+`pip install opencv-python`
+
+Or
+
+` conda install -c conda-forge opencv `
+
+Import Open CV library
+
+````
+# Import the cv2 library
+   
     import cv2
+
     print("The open cv version is:", cv2.__version__)
 
-The above code imports the required Open CV library and prints the version of cv2. The output looks like this:
+````
+
+The output is shown as below.
 
 `The open cv version is: 4.5.1`
+
+
 
 
 
