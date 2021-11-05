@@ -3,13 +3,13 @@ layout: post
 title: Confusion Matrix - Is it really confusing?
 ---
 
-![Photo by Emily Morter on Unsplash](../images/confmatrix/emily-morter-8xAA0f9yQnE-unsplash.jpg)
+![Photo by Emily Morter on Unsplash](../images/confmatrix/emily-morter-8xAA0f9yQnE-unsplash.jpg "Photo by Emily Morter on Unsplash")
 
 In this post, you will get hold of a strong foundation to understand the different metrics used to evaluate classification problems in machine learning --> **Confusion Matrix**. If you want to know what does it mean by a classification problem in machine learning, please visit my previous blog [Machine Learning Algorithms](https://arungrace88.github.io/Machine-Learning-Algorithms/).
 
 It is very common and important to test any product before being launched into the market. It enables the manufacturer to claim certain quality of the products with much confidence. Also, it ensures the customer that they have paid for something which is valuable and worthy. For example, a car manufacturer may perform several automotive tests such as vibration test, emission test, pressure impulse test etc, to ensure the car meets the required standards, prevent lawsuits, give the product a marketing edge, etc.. 
 
-![Photo by Martin Katler on Unsplash](../images/confmatrix/martin-katler-0tYN_Avjz38-unsplash.jpg)
+![Photo by Martin Katler on Unsplash](../images/confmatrix/martin-katler-0tYN_Avjz38-unsplash.jpg "Photo by Martin Katler on Unsplash")
 
 In a similar way, machine learning (ML) models are also not exempted from the testing or evaluation either!. Though evaluation of ML models may or may not have a legal binding as of now, evaluating ensures a realiable and functioning model. Depending on the type of problem, the quality of ML models can be evaluated and expressed using a parameter, generally known as performance metric. Some of the performance metrics commonly used are:
 
