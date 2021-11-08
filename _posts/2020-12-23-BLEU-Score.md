@@ -1,6 +1,6 @@
 ---
 layout: post
-title: NLP Metric: BLEU (BiLingual Evaluation Understudy) Score
+title: BLEU Score
 ---
 
 ![Photo by Waldemar Brandt on Unsplash](../images/BLEU/waldemar-brandt-U3Ptj3jafX8-unsplash.jpg "Photo by Waldemar Brandt on Unsplash")
